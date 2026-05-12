@@ -1,6 +1,6 @@
 # Migrating from a Private Wiki Repo
 
-> **TL;DR** — If you already maintain a private repo with copies of the skills/scripts (e.g. the Thích Cay team), this guide walks you through swapping local copies for the public `lark-startup-wiki` plugin so you get free upstream updates while keeping your team's customizations and private content (`docs/`, `sources/`, `.env`) intact. Allow ~1 hour for a typical 50-page wiki repo. Backup first.
+> **TL;DR** — If you already maintain a private repo with vendored copies of the skills/scripts, this guide walks you through swapping local copies for the public `lark-startup-wiki` plugin so you get free upstream updates while keeping your team's customizations and private content (`docs/`, `sources/`, `.env`) intact. Allow ~1 hour for a typical 50-page wiki repo. Backup first.
 
 ---
 

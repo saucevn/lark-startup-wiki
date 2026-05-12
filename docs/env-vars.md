@@ -38,7 +38,7 @@
 
 - **Required**: No (required only for `sync_index_base.py`)
 - **Used by**: `scripts/sync_index_base.py`
-- **Example**: `UxOkwdRyBi7oBLkFM5WlABIyg8g`
+- **Example**: `abc123def456ghi789`
 - **How to get**: Open your INDEX page in Lark Wiki. The URL contains `/wiki/<NODE_ID>` — copy that token.
 - **Notes**: This is the canonical INDEX page (mục lục) that lists every wiki page with its number, title, and status. The sync script reads this page and mirrors entries to a Lark Base.
 
@@ -108,7 +108,7 @@ LARK_APP_SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 WIKI_SPACE_ID=7234567890123456789
 
 # --- Optional (v1) ---
-WIKI_INDEX_NODE=UxOkwdRyBi7oBLkFM5WlABIyg8g
+WIKI_INDEX_NODE=abc123def456ghi789
 LARK_BASE_APP_TOKEN=RzABbase123456789xyZ
 LARK_BASE_TABLE_ID=tblABC123XYZ
 LARK_DOMAIN=larksuite.com

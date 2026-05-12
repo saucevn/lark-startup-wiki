@@ -30,8 +30,7 @@ jobs:
         run: |
           for f in scripts/*.py; do python -c "import ast; ast.parse(open('$f').read())" || exit 1; done
       - name: Run unit tests (no credentials needed)
-        run: python -m pytest scripts/tests/ -v
-        continue-on-error: true
+        run: python -m unittest discover -s scripts/tests -v
 
   scaffolder:
     name: Scaffolder smoke test

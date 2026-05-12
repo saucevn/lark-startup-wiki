@@ -13,13 +13,15 @@ export function printNextSteps({ targetDir, fileCount, initGit }) {
   console.log(b('Next steps:'));
   console.log(`  ${c('cd ' + targetDir)}`);
   console.log(`  ${c('cp .env.example .env')}       ${d('# fill LARK_APP_ID, LARK_APP_SECRET')}`);
-  console.log(`  ${c('pip install lark-startup-wiki')}  ${d('# or: pip install -r scripts/requirements.txt')}`);
+  console.log(`  ${c('pip install -r scripts/requirements.txt')}`);
+  console.log(`  ${c('python scripts/validate_structure.py')}  ${d('# sanity check')}`);
   console.log('');
-  console.log(b('Read these next:'));
-  console.log(`  ${d('docs/lark-api-setup.md')}        ${d('# set up your Lark App')}`);
-  console.log(`  ${d('skills/05-publish-workflow.md')} ${d('# publish discipline')}`);
-  console.log('');
-  console.log(b('Optional: install Claude Code plugin for live skill access:'));
+  console.log(b('Install the Claude Code plugin to load skills:'));
   console.log(`  ${c('/plugin marketplace add saucevn/lark-startup-wiki')}`);
+  console.log(`  ${c('/plugin install lark-startup-wiki@saucevn')}`);
+  console.log('');
+  console.log(b('Reference docs (in the public lark-startup-wiki repo):'));
+  console.log(`  ${d('https://github.com/saucevn/lark-startup-wiki/blob/main/docs/lark-api-setup.md')}`);
+  console.log(`  ${d('https://github.com/saucevn/lark-startup-wiki/blob/main/skills/05-publish-workflow.md')}`);
   console.log('');
 }

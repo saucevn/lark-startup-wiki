@@ -1,0 +1,25 @@
+{
+  "name": "saucevn",
+  "owner": {
+    "name": "saucevn",
+    "url": "https://github.com/saucevn"
+  },
+  "plugins": [
+    {
+      "name": "lark-startup-wiki",
+      "source": ".",
+      "description": "Skills for authoring & maintaining Lark Wiki for Vietnamese startups",
+      "version": "1.0.0",
+      "homepage": "https://github.com/saucevn/lark-startup-wiki",
+      "license": "MIT",
+      "keywords": [
+        "lark",
+        "wiki",
+        "vietnamese",
+        "startup",
+        "documentation",
+        "feishu"
+      ]
+    }
+  ]
+}
