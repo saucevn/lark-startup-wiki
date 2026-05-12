@@ -1,0 +1,141 @@
+{{=<% %>=}}<!--
+TEMPLATE FILE — rendered by `npx create-lark-startup-wiki`
+
+After scaffolding, this file becomes part of YOUR private repo (not the
+public lark-startup-wiki repo). Edit freely to match your team.
+
+Placeholders use Mustache syntax: {{VARIABLE_NAME}}
+Conditional sections: {{#OPTIONAL_VAR}}...{{/OPTIONAL_VAR}}
+-->
+<%={{ }}=%>
+
+# 08 — CONTRIBUTING: Đóng góp Wiki {{COMPANY_NAME}}
+
+> File này dành cho **nhân viên {{COMPANY_NAME}}** muốn thêm hoặc sửa nội dung Wiki — viết trực tiếp trên Lark, không cần Git.
+> Nếu bạn là **dev sửa repo (skills/, scripts/, workflows/)** → đọc [CLAUDE.md](../CLAUDE.md) thay vì file này.
+
+---
+
+## 1. Bạn cần đóng góp gì?
+
+| Tình huống | Đọc tiếp |
+|---|---|
+| Thêm 1 trang Wiki mới | §2 + §3 |
+| Sửa 1 trang đã có | §2 + §3 |
+| Đổi cấu trúc Space / Section / quy ước đánh số | **Hỏi {{CEO_NAME}} trước** — không tự làm |
+| Báo lỗi nội dung mà không sửa | Comment trực tiếp trên trang Lark + @{{CEO_NAME}} |
+
+---
+
+## 2. 3 bước đóng góp
+
+### Bước 1 — Viết draft trên Lark
+
+- Mở **[Lark INDEX](https://{{LARK_TENANT}}.larksuite.com/wiki/{{WIKI_INDEX_NODE_ID}})** → xác định trang bạn muốn thêm/sửa thuộc **Space nào** (I/II/III/IV) và **Section nào**.
+- Nếu trang đã có → mở trang, edit trực tiếp.
+- Nếu trang chưa có → tạo node mới trong Section đúng (hỏi {{CEO_NAME}} nếu chưa rõ).
+- Viết theo format chuẩn (xem §3 dưới).
+
+### Bước 2 — Gửi URL trang Lark vào group `{{CONTRIBUTOR_GROUP_NAME}}`
+
+Có **2 cách** gửi:
+
+| Cách | Cho ai | Làm gì |
+|---|---|---|
+| **A. Chat trong group** | Bạn đã ở trong group `{{CONTRIBUTOR_GROUP_NAME}}` | Paste URL trang Lark + mention `@{{REVIEWER_BOT_NAME}}` |
+| **B. Gửi email** | Bạn chưa ở trong group | Gửi email URL trang tới `{{REVIEWER_EMAIL}}` (subject: `[Review] <code-trang>`) |
+
+### Bước 3 — Đợi bot review → đọc gợi ý → CEO duyệt
+
+Bot `@{{REVIEWER_BOT_NAME}}` đọc trang, chấm **điểm x.x/10** trên 5 chiều (độ chi tiết, tính liên kết, đối chiếu nguồn, cấu trúc, văn phong) — KHÔNG có pass/fail. Comment trên trang luôn:
+
+1. **Khen trước:** điểm mạnh nổi bật của trang
+2. **Gợi ý sau:** "có thể bổ sung X", "có thể link sang trang Y" — không phải mệnh lệnh
+3. **Chi tiết điểm số:** breakdown 5 chiều
+
+| Điểm | Tier | Ý nghĩa |
+|---|---|---|
+| **≥ 8.0** | ✨ Excellent | Trang ổn rồi, tag CEO duyệt cuối |
+| **6.5 – 7.9** | 👍 Good | Có thể tag CEO duyệt, kèm gợi ý nhỏ |
+| **5.0 – 6.4** | 🔄 Khá | Nên revise 1-2 điểm trước duyệt |
+| **< 5.0** | 🌱 Cần đầu tư thêm | Viết lại section, đọc comment kỹ |
+
+Bot KHÔNG bao giờ dùng từ "fail" / "test failed" — chỉ điểm số + gợi ý. Đừng nản nếu điểm thấp, đó là feedback để hoàn thiện.
+
+**Khi {{CEO_NAME}} duyệt cuối:** CEO reply thẳng trong thread (cùng cây tin nhắn bot vừa post) với 1 trong các từ: `approved` / `approve` / `duyệt` / `ok` / `✅` / `👍`. Bot sẽ tự:
+
+- Set status trang → `✅` trên Lark INDEX
+- Append tên người viết vào cột **Contributed**
+- POST 1 dòng confirm trong group
+
+Người viết KHÔNG cần làm gì sau approval — INDEX tự cập nhật.
+
+---
+
+## 3. Trước khi viết — đọc gì?
+
+### Quy tắc đánh số
+
+- **Code reference:** `<Roman>> <X.Y.Z>` — vd `III> 5.7.1`. Roman cố định: **I** Chung · **II** Nội bộ · **III** Vận hành · **IV** BGĐ.
+- **Title trên Lark:** `<dotted-prefix>. <tên trang>` — vd `5.7.1. Livestream luật chơi là gì?`.
+- Tối đa 3 cấp Arabic (`X.Y` hoặc `X.Y.Z`). Không có cấp 4.
+- Chi tiết → [skills/08 — INDEX & Numbering](../skills/08-index-and-numbering.md).
+
+### Format trang
+
+Mỗi trang Wiki có khung cố định:
+
+1. `# <code>. <tên trang>` (H1)
+2. `## 🎯 Dành cho ai` (1 dòng)
+3. `## ⚡ Tóm tắt nhanh` (≤ 3 dòng)
+4. `## 📋 Chi tiết từng bước` HOẶC `## 📋 Nội dung chính` (tuỳ kind)
+5. `## ⚠️ Lưu ý quan trọng` (optional)
+6. `## 🔗 Tài liệu liên quan` (bắt buộc, ≥ 2 link + bắt buộc link `↑ INDEX`)
+
+Chi tiết:
+
+- [skills/01 — Page Format](../skills/01-page-format.md)
+- [skills/02 — Writing Style](../skills/02-writing-style.md) (3 `kind`: procedure / reference / template)
+- [skills/03 — Linking Rules](../skills/03-linking-rules.md) (link giữa các trang)
+
+### Tránh các lỗi thường gặp
+
+- ❌ Title không có dotted prefix (vd `Livestream luật chơi là gì?` thiếu `5.7.1.` ở đầu)
+- ❌ Thiếu section `🔗 Tài liệu liên quan` cuối trang
+- ❌ Có callout `📍 Vị trí` ở đầu trang — quy ước này **đã bỏ**
+- ❌ Tự đặt status emoji trong title (status chỉ ở INDEX, không ở title)
+- ❌ Trang quá dài (> 2 trang A4) — tách thành nhiều trang con
+
+---
+
+## 4. Quy tắc tối thượng
+
+1. **KHÔNG xoá trang đã `✅ HOÀN THÀNH`** trên INDEX mà không có {{CEO_NAME}} OK. Nếu cần loại bỏ → archive (status `⛔`), không delete.
+2. **KHÔNG tạo Space hoặc Section mới** — chỉ tạo trang trong cấu trúc đã có. Đề xuất cấu trúc mới → IM {{CEO_NAME}}.
+3. **KHÔNG đổi code** của trang đã publish (vd đổi `5.7.1` thành `5.8.1`). Code reserved vĩnh viễn.
+4. **Title phải đúng format** `<X.Y.Z>. <tên>` — bot trừ điểm Structure nếu sai.
+5. **Trang nhạy cảm** (Space IV — BGĐ) → {{CEO_NAME}} viết, không tự đóng góp.
+
+---
+
+## 5. Cần giúp đỡ?
+
+| Tình huống | Liên hệ |
+|---|---|
+| Hỏi về cấu trúc / Space / Section nào phù hợp | IM {{CEO_NAME}} |
+| Hỏi format viết / kind nào / link sao | Nhắn trong group `{{CONTRIBUTOR_GROUP_NAME}}` **không tag bot** (con người sẽ trả lời) |
+| Bot review trả comment khó hiểu | Reply `@{{REVIEWER_BOT_NAME}} explain` để bot giải thích thêm |
+| Bot không trả lời sau 24h | IM {{CEO_NAME}} |
+
+---
+
+## 6. Cho ai tò mò về workflow phía sau
+
+- Bot review chạy theo rules trong [skills/09 — Contributing Workflow](../skills/09-contributing-workflow.md) (technical).
+- Nguồn canonical về cấu trúc Wiki: [02 — Wiki Architecture](02-wiki-architecture.md).
+- Trạng thái từng trang: [Lark INDEX](https://{{LARK_TENANT}}.larksuite.com/wiki/{{WIKI_INDEX_NODE_ID}}) (canonical) + [07 — Status Tracker](07-status-tracker.md) (mirror).
+- Khi gặp lỗi `bot trả comment sai` → comment direct trên trang Lark, {{CEO_NAME}} + dev sẽ rà skill 09.
+
+---
+
+*Phiên bản 1.0 — sinh bởi `create-lark-startup-wiki`. Khi sửa workflow này → PR + {{CEO_NAME}} review.*

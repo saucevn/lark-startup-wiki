@@ -1,0 +1,77 @@
+{{=<% %>=}}<!--
+TEMPLATE FILE — rendered by `npx create-lark-startup-wiki`
+
+After scaffolding, this file becomes part of YOUR private repo (not the
+public lark-startup-wiki repo). Edit freely to match your team.
+
+Placeholders use Mustache syntax: {{VARIABLE_NAME}}
+Conditional sections: {{#OPTIONAL_VAR}}...{{/OPTIONAL_VAR}}
+-->
+<%={{ }}=%>
+
+# 05 — Lark Base cần kết nối với Wiki
+
+## Nguyên tắc
+
+Mọi trang Wiki có **dữ liệu tracking** (số liệu real-time, KR completion %, danh sách rolling) **phải** link đến Lark Base tương ứng.
+
+Định dạng link trong section "🔗 Tài liệu liên quan":
+
+```
+→ 📊 [Tên Lark Base](https://{{LARK_TENANT}}.larksuite.com/base/<app_token>) — track real-time
+```
+
+## Danh sách Lark Base quan trọng
+
+<!-- TEMPLATE: liệt kê các Lark Base bạn đang link vào Wiki. Pattern:
+     1 row = 1 Base, kèm danh sách trang Wiki cần link đến Base đó.
+     Xoá các row không áp dụng, thêm row mới theo nhu cầu công ty bạn. -->
+
+| # | Tên Lark Base | Link từ trang Wiki nào |
+|---|---|---|
+| 1 | **O3K Tracking** (KR + % hoàn thành) | `II> 3.x` (mọi trang O3K các phòng) |
+| 2 | **KPI Tháng** (từng vị trí) | `II> 3.x` (mọi trang KPI) |
+| 3 | **Quy trình lương tháng** | `II> 2.x` (Quy trình lương + Phiếu bàn giao) |
+| 4 | **Tracking hóa đơn ngày** | `III> 6.x` (xuất HĐ hàng ngày + đối soát doanh thu) |
+| 5 | **Checklist onboarding** | `I> 2.x` (Đọc trước, Ngày đầu, Tuần đầu) |
+| 6 | **Dashboard CEO** (P&L, dòng tiền, KPI tổng) | `IV> 1.x` (tài chính / dashboard Space IV) |
+| 7 | **Lịch content MKT** | `III> 5.x` (Lịch content, Sản xuất, Ads) |
+| 8 | **Tracking đơn (e-commerce)** | `III> 3.x` (xử lý đơn từng kênh) |
+| 9 | **eNPS Survey** | `II> 1.x` (eNPS khảo sát & action plan) |
+| 10 | **Hồ sơ nhân sự** | `II> 1.x` (Checklist hồ sơ, BHXH báo tăng giảm) |
+<!-- TEMPLATE: thêm các Base khác phù hợp với công ty bạn -->
+
+## Status hiện tại của Lark Base
+
+> Khi Base tạo xong, cập nhật cột "Base ID / URL" trong bảng dưới.
+
+<!-- TEMPLATE: dùng emoji ⬜ (chưa có) → 🔄 (đang xây) → ✅ (đã có URL).
+     INDEX Base mặc định = {{LARK_BASE_APP_TOKEN}} (sinh sẵn bởi scaffolder). -->
+
+| Base | Trạng thái | Base ID / URL |
+|---|---|---|
+| **INDEX** (Wiki status canonical) | ✅ | `{{LARK_BASE_APP_TOKEN}}` |
+| O3K Tracking | ⬜ Chưa có | (chờ) |
+| KPI Tháng | ⬜ Chưa có | (chờ) |
+| Quy trình lương | ⬜ Chưa có | (chờ) |
+| Tracking hoá đơn | ⬜ Chưa có | (chờ) |
+| Checklist onboarding | ⬜ Chưa có | (chờ) |
+| Dashboard CEO | ⬜ Chưa có | (chờ) |
+| Lịch content | ⬜ Chưa có | (chờ) |
+| Tracking đơn | ⬜ Chưa có | (chờ) |
+| eNPS Survey | ⬜ Chưa có | (chờ) |
+| Hồ sơ nhân sự | ⬜ Chưa có | (chờ) |
+
+## Khi tạo Base mới
+
+1. Tạo Base trong Lark
+2. Lấy Base URL từ thanh địa chỉ
+3. Cập nhật bảng "Status" ở trên với URL/Base ID
+4. Update mọi trang Wiki tương ứng (thêm link `📊` vào section "🔗 Tài liệu liên quan")
+5. Commit: `docs: link Base <tên> to wiki page <code>`
+
+## 🔗 Liên quan
+
+→ ↑ [INDEX — {{COMPANY_NAME}} Wiki](https://{{LARK_TENANT}}.larksuite.com/wiki/{{WIKI_INDEX_NODE_ID}}) — canonical
+→ [skills/03 — Linking Rules](../skills/03-linking-rules.md) — 4 loại link bắt buộc
+→ [02 — Wiki Architecture](02-wiki-architecture.md) — Wiki ở đâu, Base link như thế nào

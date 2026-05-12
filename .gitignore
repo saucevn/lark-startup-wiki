@@ -1,0 +1,41 @@
+# Secrets
+.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.pytest_cache/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Build
+dist/
+build/
+*.tgz
+
+# Drafts (user-local)
+drafts/
+sources/lark-exports/
+
+# Scaffolder publish artifact (copied by prepublishOnly, removed by postpublish)
+packages/create-lark-startup-wiki/templates/

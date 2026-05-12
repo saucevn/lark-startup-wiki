@@ -1,0 +1,96 @@
+{{=<% %>=}}<!--
+TEMPLATE FILE — rendered by `npx create-lark-startup-wiki`
+
+After scaffolding, this file becomes part of YOUR private repo (not the
+public lark-startup-wiki repo). Edit freely to match your team.
+
+Placeholders use Mustache syntax: {{VARIABLE_NAME}}
+Conditional sections: {{#OPTIONAL_VAR}}...{{/OPTIONAL_VAR}}
+-->
+<%={{ }}=%>
+
+# 04 — Thuật ngữ & Viết tắt
+
+> **Nội dung gốc trên Lark Wiki** — Space 1 / Section 4 "Thuật ngữ & Định nghĩa".
+> File này là mirror để AI agent tra cứu nhanh khi viết code/script.
+> Khi có thuật ngữ mới → cập nhật cả Lark Wiki + file này.
+
+## A. Lark / Wiki / Base (chuẩn)
+
+| Thuật ngữ | Đầy đủ | Ghi chú |
+|---|---|---|
+| **Space** | Wiki Space | Không gian lớn nhất trong Lark Wiki, chứa nhiều Node |
+| **Node** | Wiki Node | 1 trang trong Wiki Space (có thể là Docx, Sheet, Base, hoặc folder) |
+| **Wiki** | Lark Wiki | Module quản lý tri thức của Lark |
+| **Base** | Lark Base (Bitable) | Cơ sở dữ liệu dạng bảng — dùng để track real-time |
+| **Bitable** | Multi-dimensional Table | Tên technical của Lark Base |
+| **Docx** | Lark Docx | Định dạng tài liệu mới của Lark (thay thế Lark Doc cũ) |
+| **OpenID** | Lark Open ID | Mã định danh user trong 1 app cụ thể |
+| **App Token** | Bitable App Token | Mã định danh 1 Base |
+| **INDEX** | Lark Wiki INDEX | Trang/Base canonical liệt kê toàn bộ trang Wiki + status |
+
+## B. Tổ chức & Vai trò (chuẩn VN)
+
+| Viết tắt | Đầy đủ | Ghi chú |
+|---|---|---|
+| **CEO** | Chief Executive Officer | Tổng giám đốc |
+| **BGĐ** | Ban Giám Đốc | CEO + cấp quản lý chiến lược |
+| **HCNS** | Hành Chính Nhân Sự | Phòng quản lý con người, hồ sơ, giấy tờ |
+| **KTT** | Kế Toán Trưởng | Trưởng phòng kế toán |
+| **KTTH** | Kế Toán Tổng Hợp | Hạch toán, báo cáo, thuế |
+| **KT Kho** | Kế Toán Kho | Kế toán hàng tồn, nhập xuất kho |
+| **QC** | Quality Control | Kiểm soát chất lượng |
+
+## C. Đo lường & KPI
+
+| Viết tắt | Đầy đủ | Ghi chú |
+|---|---|---|
+| **O3K** | Objective + 3 Key Results | Hệ thống mục tiêu năm |
+| **KPI** | Key Performance Indicator | Chỉ số đo lường tháng |
+| **OKR** | Objective + Key Result | Tương đương O3K |
+| **eNPS** | Employee Net Promoter Score | Đo mức độ hài lòng nhân viên (-100 → +100) |
+| **NPS** | Net Promoter Score | Đo mức độ hài lòng khách hàng |
+| **KR** | Key Result | Kết quả then chốt |
+
+## D. Vận hành & Hệ thống (chuẩn VN)
+
+| Viết tắt | Đầy đủ | Ghi chú |
+|---|---|---|
+| **SOP** | Standard Operating Procedure | Quy trình chuẩn |
+| **JD** | Job Description | Mô tả công việc |
+| **BG** | Bàn giao | Phiếu bàn giao công việc |
+| **HĐ** | Hoá đơn | Hoá đơn GTGT điện tử |
+| **GTGT** | Giá Trị Gia Tăng | Thuế VAT |
+| **TNCN** | Thu Nhập Cá Nhân | Thuế TNCN |
+| **BHXH** | Bảo Hiểm Xã Hội | |
+
+## E. Bán hàng
+
+| Viết tắt | Đầy đủ | Ghi chú |
+|---|---|---|
+| **SKU** | Stock Keeping Unit | Mã định danh sản phẩm |
+| **COD** | Cash On Delivery | Thu hộ khi giao |
+| **KOC** | Key Opinion Consumer | Người tiêu dùng có sức ảnh hưởng |
+| **KOL** | Key Opinion Leader | Người dẫn dắt dư luận |
+| **CS** | Customer Service | Chăm sóc khách hàng |
+
+## F. Thuật ngữ riêng của {{COMPANY_NAME}}
+
+<!-- TEMPLATE: thêm thuật ngữ riêng của công ty bạn (tên brand, mã sản phẩm, viết tắt nội bộ, tên pháp nhân...) -->
+
+| Tên / Viết tắt | Đầy đủ | Ghi chú |
+|---|---|---|
+| **{{BRAND_1_NAME}}** | {{BRAND_1_FULL}} | {{BRAND_1_NOTE}} |
+{{#BRAND_2_NAME}}| **{{BRAND_2_NAME}}** | {{BRAND_2_FULL}} | {{BRAND_2_NOTE}} |{{/BRAND_2_NAME}}
+
+## Khi gặp thuật ngữ mới
+
+1. Hỏi {{CEO_NAME}} / KTT / HCNS đầy đủ
+2. Cập nhật file này + Lark Wiki (Space 1 / Section 4)
+3. Commit message: `docs: add glossary entry for <thuật ngữ>`
+
+## 🔗 Liên quan
+
+→ [00 — {{COMPANY_NAME}} Overview](00-company-overview.md) — bối cảnh chung
+→ [01 — Cơ cấu tổ chức](01-org-structure.md) — chi tiết HCNS / KT
+→ [skills/02 — Writing Style §3](../skills/02-writing-style.md#3-thuật-ngữ-chuyên-ngành--phải-giải-thích-lần-đầu) — quy tắc dùng thuật ngữ trong Wiki

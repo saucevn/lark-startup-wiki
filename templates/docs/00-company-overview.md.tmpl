@@ -1,0 +1,79 @@
+{{=<% %>=}}<!--
+TEMPLATE FILE — rendered by `npx create-lark-startup-wiki`
+
+After scaffolding, this file becomes part of YOUR private repo (not the
+public lark-startup-wiki repo). Edit freely to match your team.
+
+Placeholders use Mustache syntax: {{VARIABLE_NAME}}
+Conditional sections: {{#OPTIONAL_VAR}}...{{/OPTIONAL_VAR}}
+-->
+<%={{ }}=%>
+
+# 00 — {{COMPANY_NAME}} là gì?
+
+## Tóm tắt
+
+{{COMPANY_NAME}} — {{COMPANY_TAGLINE}}<!-- TEMPLATE: 1-2 câu giới thiệu công ty (sản phẩm/dịch vụ chính, thị trường) -->
+
+## Pháp nhân
+
+<!-- TEMPLATE: liệt kê 1 hoặc nhiều pháp nhân. Nếu chỉ có 1 brand, xoá BRAND_2 row. -->
+
+| Pháp nhân | Vai trò |
+|---|---|
+| **{{BRAND_1_NAME}}** | {{BRAND_1_ROLE}}<!-- TEMPLATE: vd "Sản xuất — kho NL, xưởng, QC" --> |
+{{#BRAND_2_NAME}}| **{{BRAND_2_NAME}}** | {{BRAND_2_ROLE}}<!-- TEMPLATE: vd "Thương mại — bán hàng, marketing, HCNS, kế toán" --> |{{/BRAND_2_NAME}}
+
+Chi tiết phân chia trách nhiệm → [01-org-structure.md](01-org-structure.md).
+
+## Sản phẩm & kênh bán
+
+<!-- TEMPLATE: thay nội dung dưới đây bằng thực tế công ty bạn -->
+
+- **Sản phẩm:** {{PRODUCT_LIST}}
+- **Kênh bán:** {{SALES_CHANNELS}}
+- **Khối lượng:** {{DAILY_VOLUME}}
+- **Giá sàn:** {{PRICING_NOTE}}
+
+## Phần mềm sử dụng
+
+<!-- TEMPLATE: liệt kê các phần mềm chính. Lark là mặc định vì repo này build trên Lark Wiki. -->
+
+| Phần mềm | Dùng cho |
+|---|---|
+| **Lark** | Wiki, IM, Calendar, Base, OKR, Task |
+| **Claude / AI** | Hỗ trợ viết, phân tích, thiết kế quy trình |
+<!-- TEMPLATE: thêm các phần mềm khác (CRM, ERP, kế toán, e-commerce platform...) -->
+
+## Giá trị cốt lõi
+
+<!-- TEMPLATE: liệt kê 3-7 giá trị cốt lõi của công ty -->
+
+```
+1. {{CORE_VALUE_1}}
+2. {{CORE_VALUE_2}}
+3. {{CORE_VALUE_3}}
+```
+
+## Sứ mệnh & Tầm nhìn
+
+**Sứ mệnh:** {{MISSION}}<!-- TEMPLATE: 1 câu sứ mệnh -->
+
+**Tầm nhìn {{VISION_YEAR}}:** {{VISION}}<!-- TEMPLATE: 1 câu tầm nhìn dài hạn -->
+
+(Nội dung đầy đủ trên Lark Wiki — Space 1 / Section "Về {{COMPANY_NAME}}")
+
+## Mục tiêu của Wiki
+
+Xây dựng kho tri thức trên **Lark Wiki "{{COMPANY_NAME}} Company OS"** để:
+
+- Nhân viên tự tìm câu trả lời trước khi hỏi người khác
+- Onboarding nhân viên mới nhanh và chuẩn
+- Chuẩn hóa quy trình vận hành toàn công ty
+- Kết nối với Lark Base (OKR, KPI, lương, hóa đơn, ...)
+
+## 🔗 Liên quan
+
+→ [01 — Cơ cấu tổ chức](01-org-structure.md) — chi tiết pháp nhân & phòng ban
+→ [02 — Wiki Architecture](02-wiki-architecture.md) — cấu trúc 4 Spaces
+→ [06 — Context Notes](06-context-notes.md) — ngữ cảnh vận hành chi tiết

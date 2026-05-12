@@ -1,0 +1,144 @@
+# CLAUDE.md — Quy tắc làm việc với repo {{COMPANY_NAME}} Wiki
+
+> File này dành cho **AI agent** (Claude Code, Cursor, Codex, Gemini...) làm việc trên repo này.
+> Mọi agent đọc file này TRƯỚC khi bắt đầu bất kỳ task nào.
+> File `AGENTS.md` (nếu có) là mirror của file này.
+
+---
+
+## 1. Repo này là gì
+
+| Câu hỏi | Trả lời |
+|---|---|
+| Repo GitHub này dùng để làm gì? | Lưu **action rules**, **docs** (tham chiếu công ty), và (tuỳ chọn) **sources** (file nguồn) cho Wiki của {{COMPANY_NAME}}. |
+| Nội dung Wiki thực tế của {{COMPANY_NAME}} ở đâu? | **Lark Wiki "{{COMPANY_NAME}} Company OS"** — space ID `{{WIKI_SPACE_ID}}` |
+| **INDEX (mục lục) của toàn bộ Wiki ở đâu?** | **Lark node `{{WIKI_INDEX_NODE_ID}}`** — nguồn **canonical** biết trang nào ở đâu, status gì. Đọc INDEX trước khi viết. |
+| **Đánh số + đặt tên trang?** | **Code (reference):** `<Roman>> <X.Y.Z>` vd `III> 5.7.1`. **Title trên Lark:** `<dotted-prefix>. <name>` vd `5.7.1. <tên trang>`. Xem skill `lark-startup-wiki:08-index-and-numbering`. |
+| Repo này có phải nơi soạn thảo nội dung Wiki không? | **KHÔNG.** Soạn thảo & publish thực hiện trực tiếp trên Lark, qua `lark-cli`. Repo này chỉ chứa quy tắc và công cụ. |
+| Đẩy lên Lark bằng cách nào? | Qua `lark-cli` — xem chi tiết skill `lark-startup-wiki:05-publish-workflow` |
+
+---
+
+## 2. Hai nguyên tắc tối thượng
+
+### 🛡️ Nguyên tắc 1 — Bảo vệ source code
+
+```
+KHÔNG xóa, sửa, hoặc publish nhầm các file source.
+```
+
+**Files protected (chỉ thay khi có review):**
+- `sources/lark-exports/*.xml` — snapshot Lark, chỉ pull lại qua script
+- `sources/excel/*.xlsx` — file nguồn, thay khi có version mới
+- `sources/schemas/*` — schema sinh tự động
+- `.github/workflows/*` — chỉ sửa qua PR có review
+- `scripts/*.py` — chỉ sửa qua PR có review
+
+**KHÔNG gọi `lark-cli ... publish` với input là `*.py`, `*.json`, `*.xml`** — chỉ publish markdown đã được duyệt.
+
+### 🧹 Nguyên tắc 2 — Clean-slate trước soạn thảo
+
+Trước mỗi phiên soạn thảo Wiki, **luôn** chạy checklist:
+
+1. `git status` → working tree phải sạch
+2. `git pull` → đồng bộ rules mới nhất
+3. Đọc skill liên quan trong plugin `lark-startup-wiki:*`
+4. **Xác định đích Lark trước khi viết** (Space → Section → Page). Không có đích = không soạn.
+5. Drafts viết ngoài repo hoặc trong `drafts/` (đã gitignored). **KHÔNG** commit draft vào repo.
+
+---
+
+## 3. Index dẫn lối — Khi nào dùng cái gì
+
+### Khi cần biết **VIẾT NHƯ THẾ NÀO** → dùng plugin skills
+
+> Cài plugin Claude Code (1 lần): `/plugin marketplace add saucevn/lark-startup-wiki`
+
+| Tình huống | Skill |
+|---|---|
+| Viết 1 trang Wiki mới | `lark-startup-wiki:01-page-format` |
+| Đặt tiêu đề, dùng từ ngữ | `lark-startup-wiki:02-writing-style` |
+| Link giữa các trang & Lark Base | `lark-startup-wiki:03-linking-rules` |
+| Gán trạng thái trang | `lark-startup-wiki:04-page-status` |
+| Đẩy nội dung lên Lark | `lark-startup-wiki:05-publish-workflow` |
+| Chuyển nội dung từ Excel sang Wiki | `lark-startup-wiki:06-excel-to-wiki` |
+| Bảo vệ source + clean-slate | `lark-startup-wiki:07-source-protection` |
+| Maintain INDEX + đánh số trang | `lark-startup-wiki:08-index-and-numbering` |
+| Workflow contributing + bot review | `lark-startup-wiki:09-contributing-workflow` |
+
+> Nhân viên nội bộ muốn đóng góp Wiki (không qua Git) → đọc [docs/08-contributing.md](docs/08-contributing.md) — quy trình 3 bước qua group contributor + bot reviewer.
+
+### Khi cần biết **THÔNG TIN CÔNG TY** → đọc `docs/`
+
+| Câu hỏi | File |
+|---|---|
+| {{COMPANY_NAME}} là ai? | [docs/00-company-overview.md](docs/00-company-overview.md) |
+| Cơ cấu tổ chức (pháp nhân, phòng ban) | [docs/01-org-structure.md](docs/01-org-structure.md) |
+| Wiki có cấu trúc gì? (4 Spaces, 4 tầng) | [docs/02-wiki-architecture.md](docs/02-wiki-architecture.md) |
+| Ai đọc/viết được Space nào? | [docs/03-permissions.md](docs/03-permissions.md) |
+| Thuật ngữ nội bộ | [docs/04-glossary.md](docs/04-glossary.md) |
+| Lark Base nào, link ở đâu? | [docs/05-lark-base-connections.md](docs/05-lark-base-connections.md) |
+| Ngữ cảnh vận hành | [docs/06-context-notes.md](docs/06-context-notes.md) |
+| Trạng thái Wiki hiện tại | [docs/07-status-tracker.md](docs/07-status-tracker.md) |
+| Quy trình contributing | [docs/08-contributing.md](docs/08-contributing.md) |
+
+### Khi cần **DỮ LIỆU NGUỒN** → đọc `sources/` (nếu có)
+
+- `sources/excel/` — file Excel JD/KPI/OKR/Lương/HĐ
+- `sources/lark-exports/` — XML snapshot từ Lark (gitignored mặc định)
+- `sources/schemas/` — schema sinh tự động
+
+---
+
+## 4. Quy trình mặc định khi nhận task soạn thảo
+
+```
+Bước 1: Đọc CLAUDE.md (file này) + skill phù hợp với task
+Bước 2: Xác định đích Lark (Space → Section → Page)
+        → Tra docs/02-wiki-architecture.md
+Bước 3: Soạn draft ngoài repo (drafts/ gitignored hoặc /tmp/)
+Bước 4: Review draft với {{CEO_NAME}} trước khi publish
+Bước 5: Publish qua lark-cli theo skill 05-publish-workflow
+        → Log node_id + space_id vào commit message nếu có code change
+```
+
+---
+
+## 5. Quy tắc tương tác AI agent
+
+1. **KHÔNG tự động commit** mọi thay đổi. Hỏi {{CEO_NAME}} trước khi commit + push.
+2. **KHÔNG tự động publish lên Lark.** Publish luôn manual.
+3. **KHÔNG viết toàn bộ Wiki trong 1 phiên.** Viết từng trang, xác nhận.
+4. **LUÔN** tuân theo format trong skill `lark-startup-wiki:01-page-format`.
+5. **LUÔN** gán trạng thái cho trang mới (skill `04-page-status`).
+6. **LUÔN** thêm section "🔗 Tài liệu liên quan" cuối trang Wiki.
+7. **KHÔNG** xóa hay đổi tên file trong `sources/` mà không có lý do rõ ràng.
+
+---
+
+## 6. Stack & công cụ
+
+| Công cụ | Vai trò | Lệnh kiểm tra |
+|---|---|---|
+| `lark-cli` | Đẩy nội dung lên Lark Wiki | `lark-cli auth status` |
+| Python 3.11+ | Chạy scripts/ | `python3 --version` |
+| Git | Source control | `git status` |
+| markdownlint-cli2 | Lint markdown (qua CI) | (dùng trong workflow) |
+
+Cấu hình permission Bash: xem `.claude/settings.local.json` (nếu có).
+
+Secrets: xem `.env.example` → tạo `.env` local.
+
+---
+
+## 7. Khi nào cần hỏi {{CEO_NAME}}
+
+- Tạo trang mới **không có** trong cấu trúc `docs/02-wiki-architecture.md`
+- Đổi cấu trúc Spaces
+- Đổi quy tắc trong skills
+- Push branch lên `main`
+- Bất cứ điều gì ảnh hưởng nhiều người
+
+---
+
+*File này được generate bởi `create-lark-startup-wiki`. Customize freely.*

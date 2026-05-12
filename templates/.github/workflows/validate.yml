@@ -1,0 +1,27 @@
+name: Validate Wiki Repo
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install lark-startup-wiki scripts
+        # TODO (v1.1): publish lark-startup-wiki to PyPI, then enable next line.
+        # run: pip install lark-startup-wiki
+        run: echo "skip — lark-startup-wiki not yet on PyPI"
+      - name: Validate folder structure
+        # TODO (v1.1): enable once package ships.
+        # run: python -m lark_startup_wiki.scripts.validate_structure
+        run: echo "skip — validate_structure not yet available"
+      - name: Markdown lint
+        uses: DavidAnson/markdownlint-cli2-action@v15
+        with:
+          globs: '**/*.md'

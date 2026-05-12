@@ -1,0 +1,18 @@
+# CODEOWNERS for lark-startup-wiki
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-security/customizing-your-repository/about-code-owners
+
+# Default owner — reviews everything not matched below
+*                               @saucevn
+
+# Skills require careful review (they are the framework's contract)
+/skills/                        @saucevn
+
+# Plugin manifests — Claude Code integration
+/.claude-plugin/                @saucevn
+
+# Scaffolder — npm package surface area
+/packages/                      @saucevn
+
+# Release infra
+/.github/workflows/release.yml  @saucevn
+/CHANGELOG.md                   @saucevn

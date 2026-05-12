@@ -1,0 +1,38 @@
+version: 2
+
+updates:
+  # GitHub Actions
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "ci"
+
+  # npm scaffolder package
+  - package-ecosystem: npm
+    directory: /packages/create-lark-startup-wiki
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "deps"
+    groups:
+      clack:
+        patterns:
+          - "@clack/*"
+      dev-deps:
+        dependency-type: "development"
+
+  # Python scripts
+  - package-ecosystem: pip
+    directory: /scripts
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "deps"

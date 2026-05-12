@@ -1,0 +1,61 @@
+{{=<% %>=}}<!--
+TEMPLATE FILE — rendered by `npx create-lark-startup-wiki`
+
+After scaffolding, this file becomes part of YOUR private repo (not the
+public lark-startup-wiki repo). Edit freely to match your team.
+
+Placeholders use Mustache syntax: {{VARIABLE_NAME}}
+Conditional sections: {{#OPTIONAL_VAR}}...{{/OPTIONAL_VAR}}
+-->
+<%={{ }}=%>
+
+# 03 — Phân quyền 4 Space
+
+## Bảng phân quyền
+
+<!-- TEMPLATE: thay {{ADMIN_GROUP}} / {{EDITOR_GROUP}} / {{VIEWER_GROUP}} bằng tên nhóm Lark thực tế của bạn. -->
+
+| Space | Đọc | Viết |
+|---|---|---|
+| 🏢 **I — CHUNG** | Tất cả nhân viên | {{ADMIN_GROUP}} + CEO |
+| 💰 **II — NỘI BỘ** | {{EDITOR_GROUP}} (HCNS + KT) | {{ADMIN_GROUP}} + KTT |
+| 📊 **III — VẬN HÀNH** | Tất cả nhân viên | Trưởng BP + {{ADMIN_GROUP}} |
+| 🔒 **IV — BGĐ** | CEO + BGĐ | CEO |
+
+## Nguyên tắc gán quyền
+
+```
+ĐỌC    = Có thể xem nội dung, comment, react
+VIẾT   = Có thể tạo / sửa trang, di chuyển trang, gán trạng thái
+QUẢN LÝ = Có thể đổi cấu trúc Section, mời thành viên (chỉ CEO + HCNS Lead)
+```
+
+## Quy tắc thay đổi quyền
+
+1. Mọi thay đổi quyền **chỉ {{CEO_NAME}} phê duyệt**.
+2. Khi nhân viên mới onboard:
+   - Default: read Space I + Space III
+   - HCNS request: read/write theo vị trí
+3. Khi nhân viên rời: HCNS revoke quyền trong 24h.
+
+## Cấp quyền qua `lark-cli`
+
+```bash
+lark-cli wiki members create \
+  --space-id <space_id> \
+  --params '{"member_type":"openid","member_id":"<user_open_id>","member_role":"member"}'
+```
+
+Roles: `admin` | `editor` | `member`.
+
+## Cảnh báo
+
+- **Space IV (BGĐ)** chứa thông tin nhạy cảm (tài chính, lương BGĐ, quyết định nội bộ). **TUYỆT ĐỐI KHÔNG** cấp quyền đọc cho nhân viên thường.
+- **Space II (Nội bộ)** chứa thông tin HCNS + Kế toán. KT chỉ thấy Section Kế toán; HCNS chỉ thấy Section HCNS (trừ Trưởng phòng).
+
+## 🔗 Liên quan
+
+→ ↑ [INDEX — {{COMPANY_NAME}} Wiki](https://{{LARK_TENANT}}.larksuite.com/wiki/{{WIKI_INDEX_NODE_ID}}) — canonical
+→ [02 — Wiki Architecture](02-wiki-architecture.md) — chi tiết 4 Space
+→ [skills/05 — Publish Workflow](../skills/05-publish-workflow.md) — auth khi publish
+→ [01 — Cơ cấu tổ chức](01-org-structure.md) — ai thuộc phòng nào

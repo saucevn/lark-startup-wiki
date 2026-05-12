@@ -1,0 +1,78 @@
+{{=<% %>=}}<!--
+TEMPLATE FILE — rendered by `npx create-lark-startup-wiki`
+
+After scaffolding, this file becomes part of YOUR private repo (not the
+public lark-startup-wiki repo). Edit freely to match your team.
+
+Placeholders use Mustache syntax: {{VARIABLE_NAME}}
+Conditional sections: {{#OPTIONAL_VAR}}...{{/OPTIONAL_VAR}}
+-->
+<%={{ }}=%>
+
+# 01 — Cơ cấu tổ chức {{COMPANY_NAME}}
+
+## Pháp nhân & phòng ban
+
+<!-- TEMPLATE: vẽ sơ đồ tổ chức thực tế. Ví dụ dưới là pattern 2-pháp-nhân (sản xuất + thương mại). Nếu công ty bạn chỉ có 1 pháp nhân, đơn giản hoá thành 1 nhánh. -->
+
+```
+{{COMPANY_NAME}} (Tập đoàn)
+├── {{BRAND_1_NAME}}        — {{BRAND_1_ROLE_SHORT}}
+│   ├── {{BRAND_1_DEPT_1}}
+│   ├── {{BRAND_1_DEPT_2}}
+│   └── {{BRAND_1_DEPT_3}}
+{{#BRAND_2_NAME}}│
+└── {{BRAND_2_NAME}}         — {{BRAND_2_ROLE_SHORT}}
+    ├── {{BRAND_2_DEPT_1}}
+    ├── {{BRAND_2_DEPT_2}}
+    ├── HCNS
+    └── Kế toán{{/BRAND_2_NAME}}
+```
+
+## Nguyên tắc phân chia giữa các pháp nhân
+
+<!-- TEMPLATE: nếu có nhiều pháp nhân, mô tả ranh giới rõ ràng. Bỏ section nếu chỉ có 1 pháp nhân. -->
+
+```
+{{ENTITY_SPLIT_RULES}}
+```
+
+## Nguyên tắc phân chia giữa HCNS & Kế toán
+
+```
+HCNS  = Hồ sơ / Con người / Giấy tờ / Đi gặp cơ quan
+KT    = Tiền / Sổ sách / Hạch toán / Thuế
+```
+
+Chi tiết ma trận phối hợp → file Excel HR/KT của bạn (vd `sources/excel/PhoiHop_HCNS_KeToan.xlsx`).
+
+## Vị trí chính & viết tắt
+
+<!-- TEMPLATE: liệt kê các vị trí cốt lõi của công ty. Các viết tắt chuẩn VN bên dưới có thể giữ nguyên. -->
+
+| Viết tắt | Vị trí đầy đủ |
+|---|---|
+| **CEO** | Chief Executive Officer ({{CEO_NAME}}) |
+| **BGĐ** | Ban Giám Đốc |
+| **KTT** | Kế Toán Trưởng |
+| **KTTH** | Kế Toán Tổng Hợp |
+| **KT Kho** | Kế Toán Kho |
+| **HCNS** | Hành Chính Nhân Sự |
+| **QC** | Quality Control |
+
+Thêm thuật ngữ → [04-glossary.md](04-glossary.md).
+
+## Sơ đồ chi tiết (đang xây)
+
+Sơ đồ tổ chức đầy đủ (ai là ai, thông tin nhân sự cá nhân) — **đang chờ {{CEO_NAME}} điền**.
+
+Hiện trạng:
+
+- Trang Wiki: `Space 1 / Section "Về {{COMPANY_NAME}}" / "Cơ cấu tổ chức"` — TEMPLATE
+- Trang Wiki: `Space 1 / Section "Về {{COMPANY_NAME}}" / "Ai là ai"` — TEMPLATE
+
+## 🔗 Liên quan
+
+→ [00 — {{COMPANY_NAME}} Overview](00-company-overview.md) — {{COMPANY_NAME}} là gì
+→ [03 — Permissions](03-permissions.md) — ai đọc/viết được Space nào
+→ [06 — Context Notes](06-context-notes.md) — phân biệt pháp nhân chi tiết

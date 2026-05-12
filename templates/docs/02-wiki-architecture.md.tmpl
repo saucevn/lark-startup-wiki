@@ -1,0 +1,113 @@
+{{=<% %>=}}<!--
+TEMPLATE FILE — rendered by `npx create-lark-startup-wiki`
+
+After scaffolding, this file becomes part of YOUR private repo (not the
+public lark-startup-wiki repo). Edit freely to match your team.
+
+Placeholders use Mustache syntax: {{VARIABLE_NAME}}
+Conditional sections: {{#OPTIONAL_VAR}}...{{/OPTIONAL_VAR}}
+-->
+<%={{ }}=%>
+
+# 02 — Cấu trúc Wiki "{{COMPANY_NAME}} Company OS"
+
+URL: <https://{{LARK_TENANT}}.larksuite.com/wiki/{{WIKI_SPACE_ID}}>
+INDEX (canonical): <https://{{LARK_TENANT}}.larksuite.com/wiki/{{WIKI_INDEX_NODE_ID}}>
+
+**Code (reference):** `<Roman>> <X.Y.Z>` (vd `III> 5.7.1`).
+**Title trên Lark:** `<dotted-prefix>. <name>` (vd `5.7.1. Livestream luật chơi là gì?`).
+Xem [skill 08](../skills/08-index-and-numbering.md).
+
+> Đây là **cấu trúc đề xuất** (default) sinh ra bởi `create-lark-startup-wiki`.
+> Bạn có thể customize qua scaffolder, hoặc edit trực tiếp file này sau khi scaffold.
+
+## Kiến trúc 4 tầng
+
+```
+TẦNG 1: Space     → Không gian lớn (4 Spaces, Roman I-IV)
+TẦNG 2: Section   → Nhóm tài liệu trong Space
+TẦNG 3: Page      → Tài liệu cụ thể (mỗi trang ≤ 2 trang A4)
+TẦNG 4: Subsection → Folder gom các trang cùng chủ đề (không có code riêng)
+```
+
+Code page tối đa 3 cấp: `<Section>.<Page>` hoặc `<Section>.<Subsection>.<Page>`.
+
+## 4 Spaces (cấu trúc đề xuất)
+
+### 🏢 Space I — CHUNG
+
+*Mọi người đều đọc được. Không cần phân quyền.*
+
+- Section 1: Về {{COMPANY_NAME}} (`I> 1.x`)
+- Section 2: Nhân viên mới (`I> 2.x`)
+- Section 3: Công cụ & Hệ thống (`I> 3.x`)
+- Section 4: Thuật ngữ & Định nghĩa (`I> 4.x`) ← XUYÊN SUỐT
+- Section 5: Templates dùng chung (`I> 5.x`)
+
+### 💰 Space II — NỘI BỘ
+
+*HCNS + Kế toán. Phân quyền theo phòng.*
+
+- Section 1: HCNS (Tuyển dụng, Hồ sơ, Đào tạo, eNPS)
+- Section 2: Kế toán (Vai trò, Lương, Thuế, Kho KT, Checklist)
+- Section 3: O3K & KPI (Tổng quan, O3K từng phòng, KPI từng vị trí)
+- Section 4: Quy trình phối hợp (HCNS ↔ KT, Kho ↔ KT, Bán hàng ↔ KT, MKT ↔ KT)
+
+### 📊 Space III — VẬN HÀNH
+
+*Team kho, sản xuất, bán hàng, CS, MKT.*
+
+<!-- TEMPLATE: customize section 1-6 theo loại hình kinh doanh của bạn -->
+
+- Section 1: Kho & Sản xuất (nếu áp dụng)
+- Section 2: Đóng gói & Giao hàng
+- Section 3: Bán hàng (kênh online / offline)
+- Section 4: Chăm sóc khách hàng
+- Section 5: Marketing & Content
+- Section 6: Hóa đơn bán hàng
+
+### 🔒 Space IV — BAN GIÁM ĐỐC
+
+*CEO + BGĐ. Chiến lược, tài chính, quyết định lớn.*
+
+- Section 1: Chiến lược + Tài chính & Báo cáo + Nhân sự cấp cao + Quyết định & Biên bản
+
+### 📦 Space ARCHIVE — Nội dung cũ
+
+Không vào INDEX. Chỉ tham chiếu lịch sử.
+
+## Section 5 — Templates dùng chung (Space I)
+
+6 template áp dụng toàn công ty (scaffolder tạo sẵn):
+
+| Code | Template |
+|---|---|
+| `I> 5.1` | Họp nội bộ |
+| `I> 5.2` | Báo cáo sự cố |
+| `I> 5.3` | Đề xuất / Phê duyệt |
+| `I> 5.4` | SOP — chuẩn viết quy trình mới |
+| `I> 5.5` | OKR check-in |
+| `I> 5.6` | OKR check-in hàng tháng |
+
+## Sơ đồ ERD chi tiết
+
+Schema đầy đủ + sơ đồ → `sources/schemas/lark_wiki_schema.json` và `sources/schemas/lark_wiki_erd.svg` (sinh tự động sau khi scaffold).
+
+## Khi tạo trang mới — quy tắc
+
+1. **Phải thuộc 1 trong 4 Space trên.** Không tạo Space mới mà không hỏi {{CEO_NAME}}.
+2. **Phải thuộc 1 Section đã có.** Không tạo Section mới ở Space I/II/III mà không hỏi.
+3. **Title H1 có dotted prefix** `<X.Y.Z>. <name>` — `<name>` theo `kind` (procedure câu hỏi · reference noun phrase · template). Xem [skill 01](../skills/01-page-format.md) + [skill 02](../skills/02-writing-style.md).
+4. **KHÔNG có callout `📍 Vị trí`** ở đầu trang.
+5. **Status emoji chỉ ở INDEX** + `docs/07-status-tracker.md` — xem [skill 04](../skills/04-page-status.md).
+6. **Phải có "🔗 Tài liệu liên quan"** với ≥ 2 link + bắt buộc `↑ INDEX` — xem [skill 03](../skills/03-linking-rules.md).
+7. **Phải update INDEX** sau khi publish — xem [skill 05 Step 5](../skills/05-publish-workflow.md) + [skill 08](../skills/08-index-and-numbering.md).
+8. **Đóng góp qua group `{{CONTRIBUTOR_GROUP_NAME}}` + bot `@{{REVIEWER_BOT_NAME}}`** — xem [08 — CONTRIBUTING](08-contributing.md) (nhân viên) + [skill 09](../skills/09-contributing-workflow.md) (AI agent).
+
+## 🔗 Liên quan
+
+→ ↑ [INDEX — {{COMPANY_NAME}} Wiki](https://{{LARK_TENANT}}.larksuite.com/wiki/{{WIKI_INDEX_NODE_ID}}) — canonical
+→ [03 — Permissions](03-permissions.md) — phân quyền 4 Space
+→ [07 — Status Tracker](07-status-tracker.md) — trạng thái hiện tại từng trang
+→ [skills/01 — Page Format](../skills/01-page-format.md) — format mỗi trang
+→ [skills/08 — INDEX & Numbering](../skills/08-index-and-numbering.md) — quy tắc đánh số Roman + 3 cấp

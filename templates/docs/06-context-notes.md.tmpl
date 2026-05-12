@@ -1,0 +1,95 @@
+{{=<% %>=}}<!--
+TEMPLATE FILE — rendered by `npx create-lark-startup-wiki`
+
+After scaffolding, this file becomes part of YOUR private repo (not the
+public lark-startup-wiki repo). Edit freely to match your team.
+
+Placeholders use Mustache syntax: {{VARIABLE_NAME}}
+Conditional sections: {{#OPTIONAL_VAR}}...{{/OPTIONAL_VAR}}
+-->
+<%={{ }}=%>
+
+# 06 — Ngữ cảnh vận hành {{COMPANY_NAME}}
+
+> Thông tin nền cho AI agent viết Wiki đúng ngữ cảnh thực tế.
+> Section header (Khối lượng / Phần mềm / Lịch / Quy tắc giá / Brand voice / Liên phòng) là khung — bạn fill nội dung cụ thể vào.
+
+## Khối lượng vận hành
+
+<!-- TEMPLATE: liệt kê các chỉ số vận hành chính (đơn/ngày, traffic/ngày, ticket/tuần...). Bỏ row không áp dụng. -->
+
+| Chỉ số | Giá trị | Nguồn |
+|---|---|---|
+| {{METRIC_1_NAME}} | {{METRIC_1_VALUE}} | {{METRIC_1_SOURCE}} |
+| {{METRIC_2_NAME}} | {{METRIC_2_VALUE}} | {{METRIC_2_SOURCE}} |
+| {{METRIC_3_NAME}} | {{METRIC_3_VALUE}} | {{METRIC_3_SOURCE}} |
+
+## Phần mềm chính
+
+<!-- TEMPLATE: liệt kê stack thực tế. Lark là default. -->
+
+| Phần mềm | Vai trò | Database |
+|---|---|---|
+| Lark | Wiki, IM, Calendar, Base, OKR, Task | Cloud |
+| {{SOFTWARE_2_NAME}} | {{SOFTWARE_2_ROLE}} | {{SOFTWARE_2_DB}} |
+| {{SOFTWARE_3_NAME}} | {{SOFTWARE_3_ROLE}} | {{SOFTWARE_3_DB}} |
+
+## Lịch quan trọng cố định
+
+<!-- TEMPLATE: liệt kê các deadline/sự kiện cố định trong tháng/quý. Pattern dưới là mặc định cho công ty VN. -->
+
+| Sự kiện | Ngày | Phòng phụ trách |
+|---|---|---|
+| **Chi lương** | Ngày {{PAYROLL_DAY}} hàng tháng | KT |
+| **Báo cáo thuế GTGT** | Ngày 20 hàng tháng | KTTH |
+| **Tổng hợp số liệu BC tháng** | Ngày 03 hàng tháng | KTT |
+| **Bàn giao lương HCNS → KT** | Ngày {{HANDOVER_DAY}} tháng trước | HCNS → KT |
+<!-- TEMPLATE: thêm các sự kiện riêng (closing kho, tổng kết quý...) -->
+
+## Quy tắc giá
+
+<!-- TEMPLATE: nếu có quy tắc giá đặc biệt (VAT, chiết khấu, giá sàn), điền vào đây. Bỏ section nếu không áp dụng. -->
+
+```
+{{PRICING_RULES}}
+```
+
+## Brand voice
+
+<!-- TEMPLATE: 3-5 gạch đầu dòng định nghĩa giọng văn của brand. -->
+
+- {{BRAND_VOICE_1}}
+- {{BRAND_VOICE_2}}
+- {{BRAND_VOICE_3}}
+
+## Mối liên kết liên phòng
+
+```
+HCNS ↔ KT          → Phiếu BG hàng tháng (lương, BHXH)
+Kho ↔ KT           → Phiếu nhập / xuất kho
+Bán hàng ↔ KT      → File đơn cuối ngày → xuất HĐ
+MKT ↔ KT           → Hợp đồng KOC/KOL, hóa đơn Ads
+QC ↔ Kho           → Phiếu nghiệm thu NL/TP
+```
+
+Chi tiết → file Excel ma trận phối hợp HCNS-KT của công ty bạn.
+
+## Quy tắc khi không chắc thuộc pháp nhân nào
+
+<!-- TEMPLATE: nếu công ty có nhiều pháp nhân, định nghĩa rõ ranh giới. Bỏ section nếu chỉ có 1 pháp nhân. -->
+
+```
+{{ENTITY_DECISION_RULES}}
+```
+
+## Ngữ cảnh khác
+
+<!-- TEMPLATE: bất kỳ ngữ cảnh vận hành đặc thù nào khác (mùa cao điểm, đặc thù ngành, ràng buộc legal...) -->
+
+{{CONTEXT_NOTES}}
+
+## 🔗 Liên quan
+
+→ [00 — Overview](00-company-overview.md) — {{COMPANY_NAME}} là gì
+→ [01 — Org Structure](01-org-structure.md) — pháp nhân chi tiết
+→ [05 — Lark Base Connections](05-lark-base-connections.md) — Base nào track gì

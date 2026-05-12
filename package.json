@@ -1,0 +1,17 @@
+{
+  "name": "lark-startup-wiki-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Monorepo root for lark-startup-wiki — skills + scripts + scaffolder",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "test": "npm test --workspaces --if-present",
+    "scaffold:dry": "node packages/create-lark-startup-wiki/bin/cli.js test-output --no-interactive --dry-run"
+  },
+  "license": "MIT",
+  "author": "saucevn",
+  "homepage": "https://github.com/saucevn/lark-startup-wiki",
+  "repository": "github:saucevn/lark-startup-wiki"
+}

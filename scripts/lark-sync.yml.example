@@ -1,0 +1,22 @@
+# Example configuration for sync_index_base.py
+# Copy to lark-sync.yml and customize.
+#
+# Environment variable substitution: ${VAR_NAME} is expanded from your shell
+# environment (or .env loaded by lark_client.py).
+
+base:
+  app_token: "${LARK_BASE_APP_TOKEN}"
+  table_id: "${LARK_INDEX_TABLE_ID}"
+
+mappings:
+  - source: wiki_tree
+    target_field: "Page Path"
+    rule: "node_path_from_root"
+
+  - source: wiki_status
+    target_field: "Status"
+    rule: "extract_status_from_page_content"
+
+  # - source: copy
+  #   target_field: "Owner"
+  #   rule: "copy_field:Assignee"

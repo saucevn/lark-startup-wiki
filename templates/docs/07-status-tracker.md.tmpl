@@ -1,0 +1,71 @@
+{{=<% %>=}}<!--
+TEMPLATE FILE — rendered by `npx create-lark-startup-wiki`
+
+After scaffolding, this file becomes part of YOUR private repo (not the
+public lark-startup-wiki repo). Edit freely to match your team.
+
+Placeholders use Mustache syntax: {{VARIABLE_NAME}}
+Conditional sections: {{#OPTIONAL_VAR}}...{{/OPTIONAL_VAR}}
+
+TEMPLATE: file này nên được generate tự động từ Lark INDEX Base.
+Xem `scripts/sync_index_base.py` (sinh sẵn bởi scaffolder).
+Các row dưới đây là VÍ DỤ minh hoạ format — không phải dữ liệu thật.
+-->
+<%={{ }}=%>
+
+# 07 — Trạng thái Wiki hiện tại
+
+> Code: `<Roman>> <X.Y.Z>` · Title trên Lark: `<dotted-prefix>. <name>` — xem [skill 08](../skills/08-index-and-numbering.md).
+> Nguồn canonical: [Lark INDEX](https://{{LARK_TENANT}}.larksuite.com/wiki/{{WIKI_INDEX_NODE_ID}}).
+> Roman: **I** Chung · **II** Nội bộ · **III** Vận hành · **IV** BGĐ.
+
+> ⚠️ File này là **mirror** của Lark INDEX Base. Đừng sửa tay — chạy `scripts/sync_index_base.py` để regenerate.
+
+## Tổng quan 4 Spaces
+
+<!-- TEMPLATE: rows dưới là ví dụ. Sau khi sync với INDEX Base, sẽ tự fill số thật. -->
+
+| Space | Tổng trang | Status hot spot |
+|---|---|---|
+| 🏢 I. CHUNG | {{COUNT_SPACE_I}} trang | {{STATUS_SPACE_I}} |
+| 💰 II. NỘI BỘ | {{COUNT_SPACE_II}} trang | {{STATUS_SPACE_II}} |
+| 📊 III. VẬN HÀNH | {{COUNT_SPACE_III}} trang | {{STATUS_SPACE_III}} |
+| 🔒 IV. BAN GIÁM ĐỐC | {{COUNT_SPACE_IV}} trang | {{STATUS_SPACE_IV}} |
+
+## Hot spots
+
+<!-- TEMPLATE: liệt kê các thay đổi/milestone gần đây. Ví dụ format:
+- **III> 5.7.1 → 5.7.5** — 5 trang policy ✅ HOÀN THÀNH (CEO duyệt MM/YYYY).
+- **III> 1.1 "Tên trang"** ✅ folder landing — published MM/YYYY.
+- **II> 2.6 → 2.10** — 5 trang vừa move từ root vào folder mới.
+-->
+
+- {{HOT_SPOT_EXAMPLE_1}}
+- {{HOT_SPOT_EXAMPLE_2}}
+
+## Cập nhật trạng thái
+
+Khi đổi status 1 trang (xem [skill 08 §4](../skills/08-index-and-numbering.md)):
+
+1. Update emoji trong row **Lark INDEX** (canonical, app_token `{{LARK_BASE_APP_TOKEN}}`)
+2. Chạy `scripts/sync_index_base.py` để regenerate file này
+3. Commit: `docs: sync status tracker (<date>)`
+
+**Trang Lark KHÔNG hiển thị status emoji** — chỉ title + nội dung. Status chỉ tra ở INDEX. Xem [skill 04](../skills/04-page-status.md).
+
+## Mapping Excel nguồn → trang Wiki
+
+<!-- TEMPLATE: nếu công ty bạn dùng Excel làm nguồn cho Wiki, liệt kê mapping ở đây. Bỏ section nếu không áp dụng. -->
+
+| File Excel | Đích Wiki |
+|---|---|
+| `sources/excel/{{EXCEL_FILE_1}}` | {{WIKI_DEST_1}} |
+| `sources/excel/{{EXCEL_FILE_2}}` | {{WIKI_DEST_2}} |
+
+## 🔗 Liên quan
+
+→ ↑ [INDEX — {{COMPANY_NAME}} Wiki](https://{{LARK_TENANT}}.larksuite.com/wiki/{{WIKI_INDEX_NODE_ID}}) — canonical
+→ [skills/04 — Page Status](../skills/04-page-status.md) — 5 trạng thái + sync INDEX/docs07
+→ [skills/08 — INDEX & Numbering](../skills/08-index-and-numbering.md) — quy tắc đánh số + title format
+→ [02 — Wiki Architecture](02-wiki-architecture.md) — cấu trúc tổng quát
+→ [06 — Context Notes](06-context-notes.md) — bối cảnh vận hành

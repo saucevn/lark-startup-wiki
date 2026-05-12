@@ -1,0 +1,39 @@
+{
+  "name": "create-lark-startup-wiki",
+  "version": "1.0.0",
+  "description": "Scaffold a Lark Wiki management repo for your startup",
+  "bin": {
+    "create-lark-startup-wiki": "./bin/cli.js"
+  },
+  "type": "module",
+  "files": [
+    "bin",
+    "src",
+    "templates",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node bin/cli.js test-output --no-interactive --dry-run",
+    "prepublishOnly": "node -e \"const fs=require('fs'),p=require('path');const src=p.resolve('../../templates'),dst=p.resolve('./templates');if(!fs.existsSync(src))throw new Error('templates not found at '+src);fs.cpSync(src,dst,{recursive:true,force:true});console.log('copied',src,'->',dst);\"",
+    "postpublish": "node -e \"require('fs').rmSync('./templates',{recursive:true,force:true});console.log('cleaned ./templates');\""
+  },
+  "dependencies": {
+    "@clack/prompts": "^0.7.0",
+    "kleur": "^4.1.5",
+    "mustache": "^4.2.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "MIT",
+  "author": "saucevn",
+  "homepage": "https://github.com/saucevn/lark-startup-wiki",
+  "repository": "github:saucevn/lark-startup-wiki",
+  "keywords": [
+    "lark",
+    "feishu",
+    "wiki",
+    "scaffolder",
+    "startup"
+  ]
+}
