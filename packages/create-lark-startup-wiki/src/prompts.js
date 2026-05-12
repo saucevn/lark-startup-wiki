@@ -3,8 +3,8 @@ import { intro, text, confirm, outro, isCancel, cancel } from '@clack/prompts';
 import kleur from 'kleur';
 
 // Extract space_id from URL like:
-// https://acme.larksuite.com/wiki/space/7123456789
-// https://acme.larksuite.com/wiki/Yix7wqkiXi2ksNkqHyylk6C1gqh
+// https://<tenant>.larksuite.com/wiki/space/7123456789
+// https://<tenant>.larksuite.com/wiki/abc123def456ghi789
 export function parseWikiSpaceId(url) {
   if (!url) return '';
   const m = url.match(/\/wiki\/(?:space\/)?([A-Za-z0-9]+)/);
@@ -123,7 +123,7 @@ export async function runPrompts({ defaultName = 'my-wiki' } = {}) {
 
   const indexNodeId = await ask(text({
     message: 'INDEX node ID (optional — paste node id of your TOC page)',
-    placeholder: 'UxOkwdRyBi7oBLkFM5WlABIyg8g',
+    placeholder: 'abc123def456ghi789',
     initialValue: '',
   }));
 

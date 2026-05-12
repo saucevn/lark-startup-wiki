@@ -132,7 +132,7 @@ If the file is absent, the bot uses package defaults. We'll lock the schema befo
 
 ## Translating skills to English
 
-Skills ship in Vietnamese by default (the original Thích Cay use case). To contribute English versions:
+Skills ship in Vietnamese by default (the audience this package was built for: Vietnamese startups on Lark). To contribute English versions:
 
 1. Copy `skills/01-page-format.md` to `skills/01-page-format.en.md`.
 2. Translate, keeping section structure intact.

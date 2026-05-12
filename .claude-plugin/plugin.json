@@ -1,0 +1,21 @@
+{
+  "name": "lark-startup-wiki",
+  "version": "1.0.0",
+  "description": "Skills for authoring & maintaining Lark Wiki for Vietnamese startups",
+  "author": {
+    "name": "saucevn",
+    "url": "https://github.com/saucevn"
+  },
+  "homepage": "https://github.com/saucevn/lark-startup-wiki",
+  "repository": "https://github.com/saucevn/lark-startup-wiki",
+  "license": "MIT",
+  "skills": ["./skills"],
+  "keywords": [
+    "lark",
+    "wiki",
+    "vietnamese",
+    "startup",
+    "documentation",
+    "feishu"
+  ]
+}
