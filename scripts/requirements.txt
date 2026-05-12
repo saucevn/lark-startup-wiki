@@ -1,7 +1,7 @@
 # lark-startup-wiki — Python dependencies (v1.0)
 lark-oapi>=1.4.0
 python-dotenv>=1.0.0
-PyYAML>=6.0
+PyYAML>=6.0.3
 
 # v2.0 — AI reviewer bot (uncomment when shipping):
 # anthropic>=0.40.0
