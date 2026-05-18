@@ -18,7 +18,7 @@
     "postpublish": "node -e \"require('fs').rmSync('./templates',{recursive:true,force:true});console.log('cleaned ./templates');\""
   },
   "dependencies": {
-    "@clack/prompts": "^0.7.0",
+    "@clack/prompts": "^1.4.0",
     "kleur": "^4.1.5",
     "mustache": "^4.2.0"
   },
